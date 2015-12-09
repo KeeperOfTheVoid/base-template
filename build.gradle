@@ -44,7 +44,7 @@ buildscript {
         classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
         // allows for hot swapping java classes when compiled while spring boot is running
         // additional customization is required when running intellij
-        classpath "org.springframework:springloaded:$springBootVersion"
+        classpath "org.springframework:springloaded:1.2.1.RELEASE"
     }
 }
 
