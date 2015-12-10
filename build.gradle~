@@ -219,17 +219,6 @@ idea {
     }
 }
 
-task moveAppConfig(type: Copy) {
-    from "ApplicationConfiguration.java"
-    into "src/main/java/com/ApplicationConfiguration.java"
-}
-
-task deleteAppConfig(type: Delete) {
-    delete "ApplicationConfiguration.java"
-}
-
-deleteAppConfig.dependsOn moveAppConfig
-
 tasks.withType(JavaCompile) {
     options.compilerArgs << "-Xlint"
 }
