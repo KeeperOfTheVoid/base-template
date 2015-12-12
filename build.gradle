@@ -229,6 +229,13 @@ task scaffold {
     String utilPath = "src/main/java/com/keeperofthevoid/base-template/util"
     String validatorPath = "src/main/java/com/keeperofthevoid/base-template/validator"
 
+    String cssPath = "src/main/resources/public/css"
+    String fontPath = "src/main/resources/public/fonts"
+    String imagePath = "src/main/resources/public/images"
+    String jsPath = "src/main/resources/public/js"
+    String viewPath = "src/main/resources/public/views"
+    String msgPath = "src/main/resources/messages.properties"
+
     File configStucture = new File(configPath)
     configStucture.mkdirs()
 
@@ -252,6 +259,25 @@ task scaffold {
 
     File validatorStucture = new File(validatorPath)
     validatorStucture.mkdirs()
+
+    File cssStucture = new File(cssPath)
+    cssStucture.mkdirs()
+
+    File fontStucture = new File(fontPath)
+    fontStucture.mkdirs()
+
+    File imageStucture = new File(imagePath)
+    imageStucture.mkdirs()
+
+    File jsStucture = new File(jsPath)
+    jsStucture.mkdirs()
+
+    File viewStucture = new File(viewPath)
+    viewStucture.mkdirs()
+}
+
+task createMsgProp(type: Exec) {
+    commandLine 'touch', 'src/main/resources/message.properties'
 }
 
 task moveAppConfig(type: Copy) {
@@ -262,6 +288,10 @@ task moveAppConfig(type: Copy) {
 task deleteAppConfig(type: Delete) {
     delete "ApplicationConfiguration.java"
 }
+
+createMsgProp.dependsOn scaffold
+
+moveAppConfig.dependsOn createMsgProp
 
 deleteAppConfig.dependsOn moveAppConfig
 
