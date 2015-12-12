@@ -219,6 +219,41 @@ idea {
     }
 }
 
+task scaffold {
+    String configPath = "src/main/java/com/keeperofthevoid/base-template/config"
+    String controllerPath = "src/main/java/com/keeperofthevoid/base-template/controller"
+    String exceptionPath = "src/main/java/com/keeperofthevoid/base-template/exception"
+    String modelPath = "src/main/java/com/keeperofthevoid/base-template/model"
+    String repositoryPath = "src/main/java/com/keeperofthevoid/base-template/repository"
+    String servicePath = "src/main/java/com/keeperofthevoid/base-template/service"
+    String utilPath = "src/main/java/com/keeperofthevoid/base-template/util"
+    String validatorPath = "src/main/java/com/keeperofthevoid/base-template/validator"
+
+    File configStucture = new File(configPath)
+    configStucture.mkdirs()
+
+    File controllerStucture = new File(controllerPath)
+    controllerStucture.mkdirs()
+
+    File exceptionStucture = new File(exceptionPath)
+    exceptionStucture.mkdirs()
+    
+    File modelStucture = new File(modelPath)
+    modelStucture.mkdirs()
+
+    File repositoryStucture = new File(repositoryPath)
+    repositoryStucture.mkdirs()
+
+    File serviceStucture = new File(servicePath)
+    serviceStucture.mkdirs()
+    
+    File utilStucture = new File(utilPath)
+    utilStucture.mkdirs()
+
+    File validatorStucture = new File(validatorPath)
+    validatorStucture.mkdirs()
+}
+
 task moveAppConfig(type: Copy) {
     from "ApplicationConfiguration.java"
     into "src/main/java/com/ApplicationConfiguration.java"
