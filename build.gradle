@@ -219,7 +219,7 @@ idea {
     }
 }
 
-task scaffold {
+task scaffold << {
     String configPath = "src/main/java/com/keeperofthevoid/base-template/config"
     String controllerPath = "src/main/java/com/keeperofthevoid/base-template/controller"
     String exceptionPath = "src/main/java/com/keeperofthevoid/base-template/exception"
