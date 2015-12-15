@@ -282,7 +282,7 @@ task createMsgProp(type: Exec) {
 
 task moveAppConfig(type: Copy) {
     from "ApplicationConfiguration.java"
-    into "src/main/java/com/ApplicationConfiguration.java"
+    into "src/main/java/com/"
 }
 
 task deleteAppConfig(type: Delete) {
