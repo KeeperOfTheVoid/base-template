@@ -32,7 +32,7 @@ import org.springframework.web.multipart.support.MultipartFilter;
 @EnableTransactionManagement
 @EnableJpaRepositories
 @EnableJpaAuditing(auditorAwareRef = "springSecurityAuditorAware")
-@EnableCaching
+//@EnableCaching
 @EntityScan
 @SpringBootApplication(exclude = {RabbitAutoConfiguration.class})
 public class ApplicationConfiguration extends SpringBootServletInitializer {
@@ -50,19 +50,19 @@ public class ApplicationConfiguration extends SpringBootServletInitializer {
         return application.sources(ApplicationConfiguration.class);
     }
 
-    @Bean
+    /*@Bean
     public CacheManager cacheManager() {
         return new EhCacheCacheManager(ehCacheManagerFactoryBean().getObject());
-    }
+    }*/
 
-    @Bean
+    /*@Bean
     public EhCacheManagerFactoryBean ehCacheManagerFactoryBean() {
         EhCacheManagerFactoryBean ehCacheManagerFactoryBean = new EhCacheManagerFactoryBean();
         ehCacheManagerFactoryBean.setConfigLocation(new ClassPathResource("ehcache.xml"));
         ehCacheManagerFactoryBean.setShared(true);
 
         return ehCacheManagerFactoryBean;
-    }
+    }*/
 
     /**
      * Values in <b>messages.properties</b> are reloaded after an hour.
