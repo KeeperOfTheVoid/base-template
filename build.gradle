@@ -289,6 +289,18 @@ task deleteAppConfig(type: Delete) {
     delete "ApplicationConfiguration.java"
 }
 
+task deleteAppFile(type: Delete) {
+    delete "application.properties"
+}
+
+task deleteAppLocal(type: Delete) {
+    delete "application-local.properites"
+}
+
+task deleteDbFile(type: Delete) {
+    delete "data-h2.sql"
+}
+
 task moveAppFile(type: Copy) {
     from "application.properties"
     into "src/main/resources/"
@@ -304,7 +316,13 @@ task moveDbFile(type: Copy) {
     into "src/main/resources/"
 }
 
-moveDbFile.dependsOn scaffold
+deleteAppLocal.dependsOn scaffold
+
+deleteAppFile.dependsOn deleteAppLocal
+
+deleteDbFile.dependsOn deleteAppFile
+
+moveDbFile.dependsOn deleteDbFile
 
 moveAppLocalFile.dependsOn moveDbFile
 
