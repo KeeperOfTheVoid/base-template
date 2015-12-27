@@ -289,7 +289,28 @@ task deleteAppConfig(type: Delete) {
     delete "ApplicationConfiguration.java"
 }
 
-createMsgProp.dependsOn scaffold
+task moveAppFile(type: Copy) {
+    from "application.properties"
+    into "src/main/resources/"
+}
+
+task moveAppLocalFile(type: Copy) {
+    from "application-local.properties"
+    into "src/main/resources/"
+}
+
+task moveDbFile(type: Copy) {
+    from "data-h2.sql"
+    into "src/main/resources/"
+}
+
+moveDbFile.dependsOn scaffold
+
+moveAppLocalFile.dependson moveDbFile
+
+moveAppFile.dependsOn moveAppLocalFile
+
+createMsgProp.dependsOn moveAppFile
 
 moveAppConfig.dependsOn createMsgProp
 
