@@ -306,7 +306,7 @@ task moveDbFile(type: Copy) {
 
 moveDbFile.dependsOn scaffold
 
-moveAppLocalFile.dependson moveDbFile
+moveAppLocalFile.dependsOn moveDbFile
 
 moveAppFile.dependsOn moveAppLocalFile
 
