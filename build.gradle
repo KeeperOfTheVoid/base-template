@@ -320,9 +320,9 @@ moveDbFile.dependsOn scaffold
 
 deleteDbFile.dependsOn moveDbFile
 
-moveAppLocal.dependsOn deleteDbFile
+moveAppLocalFile.dependsOn deleteDbFile
 
-deleteAppLocal.dependsOn moveAppLocal
+deleteAppLocal.dependsOn moveAppLocalFile
 
 moveAppFile.dependsOn deleteAppLocal
 
