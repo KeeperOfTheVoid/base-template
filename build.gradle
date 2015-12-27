@@ -282,7 +282,7 @@ task createMsgProp(type: Exec) {
 
 task moveAppConfig(type: Copy) {
     from "ApplicationConfiguration.java"
-    into "src/main/java/com/"
+    into "src/main/java/com/keeperofthevoid"
 }
 
 task deleteAppConfig(type: Delete) {
