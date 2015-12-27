@@ -316,19 +316,19 @@ task moveDbFile(type: Copy) {
     into "src/main/resources/"
 }
 
-deleteAppLocal.dependsOn scaffold
+moveDbFile.dependsOn scaffold
 
-deleteAppFile.dependsOn deleteAppLocal
+deleteDbFile.dependsOn moveDbFile
 
-deleteDbFile.dependsOn deleteAppFile
+moveAppLocal.dependsOn deleteDbFile
 
-moveDbFile.dependsOn deleteDbFile
+deleteAppLocal.dependsOn moveAppLocal
 
-moveAppLocalFile.dependsOn moveDbFile
+moveAppFile.dependsOn deleteAppLocal
 
-moveAppFile.dependsOn moveAppLocalFile
+deleteAppFile.dependsOn moveAppFile
 
-createMsgProp.dependsOn moveAppFile
+createMsgProp.dependsOn deleteAppFile
 
 moveAppConfig.dependsOn createMsgProp
 
