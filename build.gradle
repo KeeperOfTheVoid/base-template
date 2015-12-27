@@ -294,7 +294,7 @@ task deleteAppFile(type: Delete) {
 }
 
 task deleteAppLocal(type: Delete) {
-    delete "application-local.properites"
+    delete "application-local.properties"
 }
 
 task deleteDbFile(type: Delete) {
